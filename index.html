@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>styLink - あなたの作るあの子のスタイル</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="side-menu" class="side-menu">
+        <div class="logo">
+            <img src="img/logo.png" alt="styLink logo">
+        </div>
+        <div class="user-profile">
+            <img src="img/avatar_placeholder.png" alt="ユーザーアバター" class="profile-avatar">
+            <p class="profile-name">ユーザー名</p>
+        </div>
+        <nav class="menu-items">
+            <a href="#" class="menu-item" data-page="home"><span class="material-icons">home</span> ホーム</a>
+            <a href="#" class="menu-item" data-page="search"><span class="material-icons">search</span> サーチ</a>
+            <a href="#" class="menu-item" data-page="timeline"><span class="material-icons">local_fire_department</span> みんなのオススメ</a>
+            <a href="#" class="menu-item" data-page="try-on"><span class="material-icons">checkroom</span> 試着</a>
+            <a href="#" class="menu-item" data-page="favorites"><span class="material-icons">favorite_border</span> お気に入り</a>
+            <a href="#" class="menu-item" data-page="share-closet"><span class="material-icons">folder_shared</span> シェアクローゼット</a>
+            <a href="#" class="menu-item" data-page="event"><span class="material-icons">event</span> イベント日程</a>
+            <a href="#" class="menu-item" data-page="settings"><span class="material-icons">settings</span> 設定</a>
+        </nav>
+    </div>
+
+    <div id="main-container" class="main-container">
+        <div id="home-page" class="page active">
+            <h2 class="page-title">ホーム</h2>
+            <div class="user-info">
+                <h3>あなたの情報</h3>
+                <div class="profile-edit-container">
+                    <div class="profile-item center-align">
+                        <label for="icon-upload" class="icon-label">
+                            <img src="img/avatar_placeholder.png" alt="アイコン" id="current-icon" class="profile-icon">
+                            <input type="file" id="icon-upload" accept="image/*" class="file-input">
+                        </label>
+                        <div class="username-edit-wrapper">
+                            <input type="text" id="username-input" class="username-input" placeholder="ユーザー名" value="ユーザー名" readonly>
+                            <span class="edit-icon material-icons">edit</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <label for="height-input">身長</label>
+                        <input type="number" id="height-input" class="input-field" placeholder="例：170">
+                        <div class="toggle-and-label">
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="height-public-toggle" class="toggle-input">
+                                <label for="height-public-toggle" class="toggle-label"></label>
+                            </div>
+                            <span class="toggle-text">公開する</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <label for="tops-size-select">トップスのサイズ</label>
+                        <select id="tops-size-select" class="input-field">
+                            <option value="">選択してください</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                        <div class="toggle-and-label">
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="tops-public-toggle" class="toggle-input">
+                                <label for="tops-public-toggle" class="toggle-label"></label>
+                            </div>
+                            <span class="toggle-text">公開する</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <label for="bottoms-size-select">ボトムスのサイズ</label>
+                        <select id="bottoms-size-select" class="input-field">
+                            <option value="">選択してください</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                        <div class="toggle-and-label">
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="bottoms-public-toggle" class="toggle-input">
+                                <label for="bottoms-public-toggle" class="toggle-label"></label>
+                            </div>
+                            <span class="toggle-text">公開する</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <label>顔写真</label>
+                        <button class="image-upload-btn">
+                            <span class="material-icons">camera_alt</span>
+                        </button>
+                        <div class="toggle-and-label">
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="face-public-toggle" class="toggle-input">
+                                <label for="face-public-toggle" class="toggle-label"></label>
+                            </div>
+                            <span class="toggle-text">公開する</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <label>ボディ写真</label>
+                        <button class="image-upload-btn">
+                            <span class="material-icons">camera_alt</span>
+                        </button>
+                        <div class="toggle-and-label">
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="body-public-toggle" class="toggle-input">
+                                <label for="body-public-toggle" class="toggle-label"></label>
+                            </div>
+                            <span class="toggle-text">公開する</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="favorite-items">
+                <h3>あなたのお気に入り</h3>
+                <div id="favorites-grid" class="item-grid">
+                    </div>
+            </div>
+        </div>
+
+        <div id="search-page" class="page hidden">
+            <header class="app-header">
+                <div class="search-bar-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="         アイテムを検索">
+                    <span class="search-icon material-icons">search</span>
+                    <span class="clear-icon material-icons">close</span>
+                </div>
+            </header>
+            <div class="main-content">
+                <div class="item-grid-container">
+                    <div id="item-grid" class="item-grid">
+                    </div>
+                </div>
+            </div>
+            <div class="filter-button">
+                <span class="material-icons">filter_list</span>
+                絞り込み
+            </div>
+        </div>
+        
+        <div id="timeline-page" class="page hidden">
+            <h2 class="page-title">
+                みんなのオススメを見る
+                <button id="post-button" class="post-button">
+                    <span class="material-icons">edit</span> 投稿
+                </button>
+            </h2>
+            <div class="timeline-tabs">
+                <div class="timeline-tab active" data-tab="recommended">おすすめ</div>
+                <div class="timeline-tab" data-tab="following">フォロー中</div>
+            </div>
+            <div id="timeline-container">
+                </div>
+        </div>
+        
+        <div id="try-on-page" class="page hidden">
+            <h2 class="page-title">試着</h2>
+            <div class="try-on-container">
+                <div class="mannequin-container">
+                    <img src="img/mannequin.png" alt="マネキン" class="mannequin-image">
+                    <img id="try-on-tops" class="try-on-item-image tops-layer" src="" alt="トップス">
+                    <img id="try-on-bottoms" class="try-on-item-image bottoms-layer" src="" alt="ボトムス">
+                    <img id="try-on-shoes" class="try-on-item-image shoes-layer" src="" alt="シューズ">
+                </div>
+                <div class="try-on-controls">
+                    <div class="try-on-tabs">
+                        <div class="try-on-tab active" data-category="tops">トップス</div>
+                        <div class="try-on-tab" data-category="bottoms">ボトムス</div>
+                        <div class="try-on-tab" data-category="shoes">シューズ</div>
+                    </div>
+                    <div class="item-selection-grid">
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="favorites-page" class="page hidden">
+            <h2 class="page-title">お気に入り</h2>
+            <div id="all-favorites-grid" class="item-grid">
+                </div>
+        </div>
+
+        <div id="share-closet-page" class="page hidden">
+            <h2 class="page-title">シェアクローゼット</h2>
+            <div class="share-closet-tabs">
+                <div class="share-closet-tab active" data-tab="shared-with">シェアされたアイテム</div>
+                <div class="share-closet-tab" data-tab="shared-by">シェアしたアイテム</div>
+            </div>
+            <div id="shared-with-container" class="shared-items-container">
+                </div>
+            <div id="shared-by-container" class="shared-items-container hidden">
+                </div>
+        </div>
+        
+        <div id="event-page" class="page hidden">
+            <h2 class="page-title">
+                リアルイベント
+                <button id="add-event-button" class="add-event-button">
+                    <span class="material-icons">add</span> 予定を追加
+                </button>
+            </h2>
+            <div class="event-content">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <span id="prev-month" class="material-icons">chevron_left</span>
+                        <h3 id="current-month-year"></h3>
+                        <span id="next-month" class="material-icons">chevron_right</span>
+                    </div>
+                    <div class="calendar-days">
+                        <span>日</span>
+                        <span>月</span>
+                        <span>火</span>
+                        <span>水</span>
+                        <span>木</span>
+                        <span>金</span>
+                        <span>土</span>
+                    </div>
+                    <div id="calendar-dates" class="calendar-dates">
+                        </div>
+                </div>
+                <div class="event-list-container">
+                    <h3>今日の予定</h3>
+                    <ul id="event-list">
+                        </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="settings-page" class="page hidden">
+            <h2 class="page-title">設定</h2>
+            <p>ここに設定情報が表示されます。</p>
+        </div>
+        
+        <div id="friend-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>誰に送りますか？</h3>
+                    <span class="modal-close material-icons">close</span>
+                </div>
+                <div id="friend-list" class="friend-list-container">
+                </div>
+            </div>
+        </div>
+
+        <div id="post-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>新しい投稿</h3>
+                    <span id="post-modal-close" class="modal-close material-icons">close</span>
+                </div>
+                <div class="post-form">
+                    <textarea id="post-caption" placeholder="キャプションを入力..." rows="4"></textarea>
+                    <label for="post-image-upload" class="image-upload-label">
+                        <span class="material-icons">add_photo_alternate</span> 写真を選択
+                        <input type="file" id="post-image-upload" accept="image/*" class="file-input" multiple>
+                    </label>
+                    <div id="post-preview-container" class="post-preview-container"></div>
+                    <button id="submit-post-button" class="submit-post-button">投稿する</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="event-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>予定を追加</h3>
+                    <span id="event-modal-close" class="modal-close material-icons">close</span>
+                </div>
+                <div class="event-form">
+                    <label for="event-title-input">タイトル</label>
+                    <input type="text" id="event-title-input" class="input-field" placeholder="予定のタイトル">
+                    
+                    <label for="event-date-input">日付</label>
+                    <input type="date" id="event-date-input" class="input-field">
+                    
+                    <label for="event-time-input">時間</label>
+                    <input type="time" id="event-time-input" class="input-field">
+                    
+                    <button id="save-event-button" class="save-event-button">保存</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="image-modal" class="modal-overlay hidden">
+            <div class="modal-content image-modal-content">
+                <span id="image-modal-close" class="modal-close material-icons">close</span>
+                <img id="modal-image" src="" alt="拡大画像">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
