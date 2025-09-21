@@ -1,0 +1,1058 @@
+/* グローバルスタイル */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+}
+
+/* ページ切り替えのスタイル */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* メインコンテナのスタイル（常時表示） */
+.main-container {
+    margin-left: 250px;
+}
+
+/* メニューバーのスタイル */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 180px;
+}
+
+.user-profile {
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.profile-name {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.menu-items {
+    padding-top: 10px;
+    flex-grow: 1; /* メニューアイテムが残りのスペースを埋める */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #555;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-item .material-icons {
+    margin-right: 15px;
+}
+
+/* ページタイトルのスタイル */
+.page-title-container {
+    padding: 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title {
+    margin: 0;
+}
+
+/* ホーム画面のスタイル */
+.home-content {
+    padding: 20px;
+}
+
+.user-info, .favorite-items {
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.view-all {
+    text-decoration: none;
+    color: #ff4081;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* プロフィール編集画面のスタイル */
+.profile-edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-item label {
+    flex-basis: 120px;
+    font-weight: bold;
+}
+
+.input-field {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.center-align {
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.username-edit-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+
+.username-input {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    background: none;
+    pointer-events: none;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: #999;
+}
+
+.file-input {
+    display: none;
+}
+
+.image-upload-btn {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ON/OFFトグルスイッチのスタイルとテキストの配置 */
+.toggle-and-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch .toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch .toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.toggle-switch .toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-label {
+    background-color: #2196F3;
+}
+
+.toggle-input:checked + .toggle-label:before {
+    transform: translateX(20px);
+}
+
+.toggle-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ヘッダーのスタイル調整（サーチ画面用） */
+.app-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+.search-bar {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+.search-icon,
+.clear-icon {
+    position: absolute;
+    color: #999;
+    font-size: 18px;
+}
+
+.search-icon {
+    left: 15px;
+}
+
+.clear-icon {
+    right: 15px;
+    display: none;
+}
+
+.main-content {
+    padding: 0 16px;
+}
+
+.item-grid-container {
+    padding-bottom: 70px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 200px;
+}
+
+.item-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background-color: #ffe4e1;
+}
+
+.item-details {
+    padding: 5px;
+}
+
+.item-name {
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-price {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    margin: 2px 0 0;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.favorite-icon.favorited {
+    color: #ff4081;
+}
+
+.filter-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 50;
+}
+
+.send-to-friend-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #ff4081;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 8px;
+    cursor: pointer;
+    z-index: 10;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.send-to-friend-btn:hover {
+    background-color: #ff609a;
+}
+
+/* モーダルウィンドウ共通スタイル */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay:not(.hidden) .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-close {
+    cursor: pointer;
+    color: #999;
+}
+
+/* 友人リストモーダル */
+.friend-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.friend-item:hover {
+    background-color: #f0f0f0;
+}
+
+.friend-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.friend-name {
+    font-weight: bold;
+}
+
+/* タイムラインのスタイル */
+.post-button, .add-event-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.post-button:hover, .add-event-button:hover {
+    background-color: #ff609a;
+}
+
+.timeline-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.timeline-tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #999;
+    position: relative;
+}
+
+.timeline-tab.active {
+    color: #000;
+}
+
+.timeline-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+#timeline-container {
+    padding: 20px;
+}
+
+.post-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.post-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info {
+    flex-grow: 1;
+}
+
+.post-username {
+    font-weight: bold;
+    margin: 0;
+}
+
+.post-id {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.post-body {
+    padding: 15px;
+}
+
+.post-body p {
+    margin-top: 0;
+    white-space: pre-wrap;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.post-actions .material-icons {
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.post-actions .material-icons:hover {
+    color: #000;
+}
+
+/* 投稿用モーダルウィンドウのスタイル */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#post-caption {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 14px;
+}
+
+.image-upload-label {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.image-upload-label:hover {
+    background-color: #e0e0e0;
+}
+
+/* プレビュー画像のコンテナ */
+.post-preview-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* プレビュー画像のスタイル */
+.preview-image {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.submit-post-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-post-button:hover {
+    background-color: #ff609a;
+}
+
+/* 投稿カード内の画像コンテナ */
+.post-image-container {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.post-image-container img {
+    width: calc(33.33% - 5px);
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 画像拡大モーダル用スタイル */
+.image-modal-content {
+    background: transparent;
+    padding: 0;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+/* シェアクローゼットのスタイル */
+.shared-items-container {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.shared-items-container.active {
+    display: grid;
+}
+
+.shared-item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.shared-item-card:hover {
+    transform: translateY(-5px);
+}
+
+.shared-item-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shared-item-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.shared-item-info {
+    flex-grow: 1;
+}
+
+.shared-from-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.shared-date {
+    font-size: 0.8em;
+    color: #999;
+}
+
+.shared-item-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.shared-item-details {
+    padding: 15px;
+}
+
+.shared-item-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.shared-item-price {
+    color: #555;
+    margin-top: 5px;
+}
+
+.share-closet-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.share-closet-tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #999;
+    position: relative;
+}
+
+.share-closet-tab.active {
+    color: #000;
+}
+
+.share-closet-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+/* 試着機能のスタイル */
+.try-on-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.mannequin-container {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mannequin-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.try-on-item-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.tops-layer {
+    z-index: 3;
+    top: 50px;
+}
+
+.bottoms-layer {
+    z-index: 2;
+    top: 250px;
+}
+
+.shoes-layer {
+    z-index: 1;
+    top: 400px;
+}
+
+.try-on-controls {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.try-on-tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ddd;
+}
+
+.try-on-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #999;
+    position: relative;
+}
+
+.try-on-tab.active {
+    color: #000;
+}
+
+.try-on-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.item-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.try-on-thumbnail {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.try-on-thumbnail:hover {
+    border-color: #ff4081;
+}
+
+/* リアルイベントのスタイル */
+.event-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.calendar-container {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header .material-icons {
+    cursor: pointer;
+}
+
+#current-month-year {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+.day.active {
+    background-color: #ff4081;
+    color: #fff;
+    font-weight: bold;
+}
+
+.day.empty {
+    background-color: #f8f8f8;
+    cursor: default;
+}
+
+.event-dot {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #ff4081;
+    border-radius: 50%;
+}
+
+.event-list-container {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#event-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-left: 3px solid #ff4081;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.save-event-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.save-event-button:hover {
+    background-color: #ff609a;
+}
